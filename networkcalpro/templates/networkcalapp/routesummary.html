@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NetworkCalculator</title>
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+</head>
+<body>
+    <div class="container">
+        
+        <ul id="nav-tab">
+            <li><a href="{% url 'index' %}">SUBNET MASK</a></li>
+            <li><a href="{% url 'whildcardmask' %}">WHILDCARD MASK</a></li>
+            <li><a href="{% url 'subnetquestions' %}">SUBNET QUESTIONS</a></li>
+        </ul>  
+        <div class="tab-content">
+            <div class="page page-active" id="routesummrization">
+                <h2>ROUTE SUMMARY</h2><br>
+                <textarea id="txtComment" placeholder="Enter all the network address...(e.g: 192.168.1.0/24 192.168.2.0/24 192.168.3.0/24 ...)
+                give same subnetmask and use space for dividing network address." style="height: 100px; width: 700px" ></textarea>
+                <br><br>
+                <input type="submit" class="ip_button"  value="Submit"> <span>{{ validornot }}</span>
+                <br><br>
+                <div style="height:100px;background-color: white;width:700px;border:1px solid #ccc; font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<script src="{% static 'js/1.js' %}"></script>-->
+    
+</body>
+</html>

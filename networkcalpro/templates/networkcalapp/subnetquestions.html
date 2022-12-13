@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NetworkCalculator</title>
+    <link rel="stylesheet" href="{% static 'css/all_mystyle.css' %}">
+</head>
+<body>
+    <div class="container">
+        
+        <ul id="nav-tab">
+            <li><a href="{% url 'index' %}">SUBNET MASK</a></li>
+            <li><a href="{% url 'whildcardmask' %}">WHILDCARD MASK</a></li>
+            <li class="active"><a href="#subnetquestions">SUBNET QUESTIONS</a></li>
+        </ul>  
+        <div class="tab-content">
+            <div class="page page-active" id="subnetquestions">
+                <h2>SUBNET QUESTIONS</h2>
+                <h3>Question:</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div style="height:120px;background-color: white;width:700px;border:1px solid #ccc; font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+                    <label>{{ subnet_questions }}</label>
+                    </div>
+                    <br>
+                    <br>
+                    <label><a href="{% url 'subnetquestions_rans' %}"><h3>Reveal answer</h3></a></label>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    <!--<script src="{% static 'js/1_1.js' %}"></script>-->
+    
+</body>
+</html>

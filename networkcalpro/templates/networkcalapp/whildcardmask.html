@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NetworkCalculator</title>
+    <link rel="stylesheet" href="{% static 'css/all_mystyle.css' %}">
+</head>
+<body>
+    <div class="container">
+        
+        <ul id="nav-tab">
+            <li><a href="{% url 'index' %}">SUBNET MASK</a></li>
+            <li class="active"><a href="#whildcardmask">WHILDCARD MASK</a></li>
+            <li><a href="{% url 'subnetquestions' %}">SUBNET QUESTIONS</a></li>
+        </ul>  
+        <div class="tab-content">                
+            <div class="page page-active" id="whildcardmask">
+                <h2>WHILDCARD MASK</h2><br>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div>
+                        <label for="fname">IP ADDRESS: </label>
+                        <input class="text_input" type="text" id="sub_ip" name="sub_ip" placeholder="{{text_box_ip}}">
+                        <br>
+                    </div>
+                    <div class="subnet_slider">
+                        
+                        <input class="slider_input" type="range" value="{{range_value}}" min="1" max="30" id="all" name="all">
+                        <label for="fname">SUBNETMASK: <span id="all_value">24</span></label>
+                        <br>
+                    </div>
+                    <div>
+                        <br>
+                        <input type="submit" class="ip_button"  value="Submit"> <span>{{ validornot }}</span>
+                        
+                        <br><br><br>
+                    </div>
+                    <div>
+                        <label>IP Address: {{ ip_address }}</label>
+                        <br><br>
+                    </div>
+                    <div>
+                        <label>Starting Address : {{ starting_address }}</label>
+                        <br><br>
+                    </div>
+                    <div>
+                        <label>Ending Address: {{ ending_address }}</label>
+                        <br><br>
+                    </div>
+                    
+                </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="{% static 'js/wildcard.js' %}"></script>
+    
+</body>
+</html>
